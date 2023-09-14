@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online eCommers website</title>
+    <style>
+        /* CSS styles ... (same as before) */
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #03045e;
+        }
+        
+        header {
+            background-color: #C8AE7D;
+            color: black;
+            text-align: center;
+            padding: 5px 0;
+            border-bottom: 3px solid;
+            border-color: black;
+        }
+        
+        header h1 {
+            letter-spacing: 2px;
+        }
+        
+        main {
+            padding: 20px;
+        }
+        
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            flex-grow: 4;
+            flex-wrap: 3;
+            column-gap: 30px;
+        }
+        
+        .product {
+            width: 275px;
+            border: 1px solid wheat;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            background-color: antiquewhite;
+            border-radius: 10px;
+        }
+        
+        .product img {
+            max-width: 100%;
+            border-radius: 25px;
+        }
+        
+        .product h2 {
+            margin-top: 10px;
+        }
+        
+        .product p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .price {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .add-to-cart {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #0056b3;
+        }
+        /* Additional styles for the modals */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 100%;
+            text-align: center;
+            background-color: wheat;
+            /
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>My e-Commerce Store</h1>
+    </header>
+
+    <!-- Main Product Sections -->
+    <main>
+        <section class="products">
+            <!-- Product 1 -->
+            <div class="product">
+                <img src="https://cdn1.smartprix.com/rx-ibsJ2hNrF-w1200-h1200/bsJ2hNrF.jpg" alt="product 1">
+                <h3>Apple iPhone 14</h3>
+                <p>Dual Sim, 3G, 4G, 5G, VoLTE, Wi-Fi, NFC,Bionic A15, Hexa Core, 3.22 GHz Processor,6 GB RAM, 256 GB inbuilt,3279 mAh Battery with Fast Charging,6.1 inches, 1170 x 2532 px Display with Small Notch,12 MP + 12 MP Dual Rear & 12 MP Front Camera</p>
+
+
+                <span class="price">Rs:150000</span>
+                <button class="add-to-cart" data-product="Apple iPhone 14">Add to Cart</button>
+            </div>
+            <!-- Add other products here... -->
+            <div class="product">
+                <img src="https://cdn1.smartprix.com/rx-ibQpWfEfh-w1200-h1200/apple-iphone-14-plus.webp" alt="Product 2">
+                <h3>Apple iPhone 14 Plus</h3>
+                <p>Dual Sim, 3G, 4G, 5G, VoLTE, Wi-Fi, NFC,Bionic A15, Hexa Core, 3.22 GHz Processor,6 GB RAM, 128 GB inbuilt,4325 mAh Battery with Fast Charging,6.7 inches, 1284 x 2778 px Display with Small Notch,12 MP + 12 MP Dual Rear & 12 MP Front Camera</p>
+                <span class="price">Rs:250000</span>
+                <button class="add-to-cart" data-product="Apple iPhone 14 Plus">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://cdn1.smartprix.com/rx-ifbFIHsjy-w1200-h1200/apple-iphone-13-mini.webp" alt="Product 3">
+                <h3>Apple iPhone 13 Mini</h3>
+                <p>Dual Sim, 3G, 4G, 5G, VoLTE, Wi-Fi, NFC Bionic A15, Hexa Core, 3.22 GHz Processor 4 GB RAM, 128 GB inbuilt 2438 mAh Battery with Fast Charging 5.4 inches, 1080 x 2340 px Display with Large Notch 12 MP + 12 MP Dual Rear & 12 MP Front Camera
+                </p>
+                <span class="price">Rs:25000</span>
+                <button class="add-to-cart" data-product="Apple iphone 13 Mini">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://cdn1.smartprix.com/rx-ijm5SaXcD-w1200-h1200/apple-iphone-12-128g.webp" alt="Product 4">
+                <h3>Apple iPhone 12
+                </h3>
+                <p>Dual Sim, 3G, 4G, 5G, VoLTE, Wi-Fi, NFC Bionic A14, Hexa Core, 3.1 GHz Processor 4 GB RAM, 128 GB inbuilt 6.1 inches, 1170 x 2532 px Display with Large Notch 12 MP + 12 MP Dual Rear & 12 MP Front Camera
+                </p>
+                <span class="price">Rs:10000</span>
+                <button class="add-to-cart" data-product="Apple iPhone 12 (128GB)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://cdn1.smartprix.com/rx-iM2Ri8GhD-w1200-h1200/apple-iphone-13-pro.webp" alt="product 5">
+                <h3>Apple iPhone 13 Pro
+                </h3>
+                <p>Dual Sim, 3G, 4G, 5G, VoLTE, Wi-Fi, NFC Bionic A15, Hexa Core, 3.22 GHz Processor 6 GB RAM, 128 GB inbuilt 3095 mAh Battery with Fast Charging 6.1 inches, 1170 x 2532 px, 120 Hz Display with Large Notch 12 MP + 12 MP + 12 MP Triple Rear
+                    & 12 MP Front Camera</p>
+                <span class="price">Rs:120000</span>
+                <button class="add-to-cart" data-product="Oxygen running shoes for men">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://cdn1.smartprix.com/rx-ibsJ2hNrF-w420-h420/apple-iphone-14-256g.webp" alt="product 6">
+                <h3>Apple iPhone 12 Pro
+                </h3>
+                <p>Dual Sim, 3G, 4G, 5G, VoLTE, Wi-Fi, NFC Bionic A15, Hexa Core, 3.22 GHz Processor 6 GB RAM, 128 GB inbuilt 3095 mAh Battery with Fast Charging 6.1 inches, 1170 x 2532 px, 120 Hz Display with Large Notch 12 MP + 12 MP + 12 MP Triple Rear
+                    & 12 MP Front Camera</p>
+                <span class="price">Rs:150000</span>
+                <button class="add-to-cart" data-product="Apple iPhone 12 Pro
+        ">Add to Cart</button>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Customer Details Modal -->
+    <div id="customerDetailsModal" class="modal">
+        <div class="modal-content">
+            <h2>Customer Details</h2>
+            <form id="customerDetailsForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required><br><br>
+                <button type="button" id="customerDetailsNext">Next</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Quantity Modal -->
+    <div id="quantityModal" class="modal">
+        <div class="modal-content">
+            <h2>Quantity Selection</h2>
+            <form id="quantityForm">
+                <label for="quantity">Select Quantity:</label>
+                <select id="quantity" required>
+                    <option value="" disabled selected>Select quantity</option>
+                    <!-- Generate options with JavaScript -->
+                </select><br><br>
+                <button type="button" id="quantityNext">Next</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Payment Method Modal -->
+    <div id="paymentMethodModal" class="modal">
+        <div class="modal-content">
+            <h2>Payment Method</h2>
+            <form id="paymentMethodForm">
+                <label for="paymentMethod">Select Payment Method:</label>
+                <select id="paymentMethod" required>
+                    <option value="" disabled selected>Select payment method</option>
+                    <option value="creditCard">Credit Card</option>
+                    <option value="debitCard">Debit Card</option>
+                </select><br><br>
+                <button type="button" id="paymentMethodNext">Next</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Card Details Modal -->
+    <div id="cardDetailsModal" class="modal">
+        <div class="modal-content">
+            <h2>Card Details</h2>
+            <form id="cardDetailsForm">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" required><br><br>
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" id="expiryDate" placeholder="MM/YY" required><br><br>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" required><br><br>
+                <button type="submit" id="cardDetailsSubmit">Submit Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const customerDetailsModal = document.getElementById('customerDetailsModal');
+        const quantityModal = document.getElementById('quantityModal');
+        const paymentMethodModal = document.getElementById('paymentMethodModal');
+        const cardDetailsModal = document.getElementById('cardDetailsModal');
+        const quantitySelect = document.getElementById('quantity');
+        const quantityForm = document.getElementById('quantityForm');
+        const paymentMethodSelect = document.getElementById('paymentMethod');
+        const paymentMethodForm = document.getElementById('paymentMethodForm');
+        const cardDetailsForm = document.getElementById('cardDetailsForm');
+
+        let selectedProduct = '';
+        let selectedQuantity = 0;
+        let paymentMethod = '';
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                selectedProduct = button.getAttribute('data-product');
+                openCustomerDetailsModal();
+            });
+        });
+
+        function openCustomerDetailsModal() {
+            customerDetailsModal.style.display = 'block';
+        }
+
+        document.getElementById('customerDetailsNext').addEventListener('click', () => {
+            customerDetailsModal.style.display = 'none';
+            openQuantityModal();
+        });
+
+        function openQuantityModal() {
+            generateQuantityOptions();
+            quantityModal.style.display = 'block';
+        }
+
+        function generateQuantityOptions() {
+            for (let i = 1; i <= 1000; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i;
+                quantitySelect.appendChild(option);
+            }
+        }
+
+        document.getElementById('quantityNext').addEventListener('click', () => {
+            selectedQuantity = parseInt(quantitySelect.value);
+            quantityModal.style.display = 'none';
+            openPaymentMethodModal();
+        });
+
+        function openPaymentMethodModal() {
+            paymentMethodModal.style.display = 'block';
+        }
+
+        document.getElementById('paymentMethodNext').addEventListener('click', () => {
+            paymentMethod = paymentMethodSelect.value;
+            paymentMethodModal.style.display = 'none';
+            openCardDetailsModal();
+        });
+
+        function openCardDetailsModal() {
+            cardDetailsModal.style.display = 'block';
+        }
+
+        cardDetailsForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            cardDetailsModal.style.display = 'none';
+            processPayment();
+        });
+
+        function processPayment() {
+            // Simulate payment processing
+            const isSuccess = Math.random() < 0.8; // 80% success rate
+            if (isSuccess) {
+                alert('Payment successful! Your items will be shipped soon.');
+            } else {
+                alert('Payment failed. Please check your card details and try again.');
+            }
+            resetData();
+        }
+
+        function resetData() {
+            selectedProduct = '';
+            selectedQuantity = 0;
+            paymentMethod = '';
+            quantitySelect.innerHTML = '<option value="" disabled selected>Select quantity</option>';
+        }
+    </script>
+</body>
+
+</html>
